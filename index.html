@@ -1,0 +1,32 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Trendy Transfers App</title>
+</head>
+<body>
+<p>Redirecting you to the Trendy Transfers app...</p>
+
+<script>
+const apple = "https://apps.apple.com/us/app/trendy-transfers/id1509924353";
+const android = "https://play.google.com/store/apps/details?id=trendytransfers.android.app&hl=en_US";
+
+const ua = navigator.userAgent || "";
+
+if (/Android/i.test(ua)) {
+  window.location.replace(android);
+} else if (/iPhone|iPad|iPod/i.test(ua) ||
+  (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1)) {
+  window.location.replace(apple);
+} else {
+  document.body.innerHTML = `
+    <h2>Get the Trendy Transfers App!</h2>
+    <p><a href="${apple}">Download on the App Store</a></p>
+    <p><a href="${android}">Get it on Google Play</a></p>
+  `;
+}
+</script>
+</body>
+</html>
